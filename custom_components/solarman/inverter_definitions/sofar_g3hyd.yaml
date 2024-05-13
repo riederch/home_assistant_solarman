@@ -29,6 +29,9 @@ requests:
   - start: 0x1052 # battery eps buffer
     end: 0x1052
     mb_functioncode: 0x03
+  - start: 0x1110 # inverter mode
+    end: 0x1110
+    mb_functioncode: 0x03
 
 parameters:
 
