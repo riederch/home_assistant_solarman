@@ -26,6 +26,9 @@ requests:
   - start: 0x0684 # generation
     end: 0x069B
     mb_functioncode: 0x03
+  - start: 0x1023 # feed in limit
+    end: 0x1024
+    mb_functioncode: 0x03
   - start: 0x104D # battery dod and eod
     end: 0x104E
     mb_functioncode: 0x03
@@ -975,6 +978,30 @@ parameters:
         rule: 3
         registers: [ 0x069b,0x069A ]
         icon: 'mdi:battery-minus'
+      - name: "Feed in limit"
+        class: "power"
+        state_class: "measurement"
+        uom: "kW"
+        scale: 0.1
+        rule: 2
+        registers: [ 0x1024 ]
+        icon: 'mdi:transmission-tower-off'
+      - name: "Anti reflux control"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [ 0x1023 ]
+        isstr: true
+        icon: 'mdi:wrench'
+        lookup:
+          - key: 0
+            value: "Disabled"
+          - key: 1
+            value: "Limit"
+          - key: 2
+            value: "Three phase limit"
 
   - group: Alert
     items:
